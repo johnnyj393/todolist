@@ -1,0 +1,146 @@
+:root {
+    --dark: #92C7CF;
+    --mid: #E5E1DA;
+    --light: #fdf4ff;
+    --to-do-big-text: 1.1rem;
+    --to-do-small-text: 0.85rem;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 200ms ease-in-out;
+    border: 3px solid var(--dark); /* Corrected order */
+    background-color: white;
+    border-radius: 1rem;
+    z-index: 10;
+    box-sizing: border-box;
+    width: 35rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.new-modal-header {
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 1px var(--mid) solid;
+    align-items: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.new-modal-header > button {
+    font-size: 1.2rem;
+    background-color: transparent;
+    border: none;
+}
+
+.new-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+#newNav {
+    border-right: 1px var(--mid) solid;
+    padding: 0 1rem;
+}
+
+#newNav > ul > li {
+    padding: 0.5rem 0;
+    border-bottom: 1px var(--mid) solid;
+}
+
+/* Form */
+.create-new-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0.4rem 1rem 1rem 1rem;
+}
+
+/* 1 and 2 in form flex box */
+.new-text {
+    height: 1.7rem;
+    display: block;
+    border: none;
+    resize: none;
+    outline: none;
+}
+
+/* 2 in flex box */
+.description {
+    flex: 1;
+    box-sizing: border-box;
+}
+
+/* 3 in flex box */
+/* Bottom part */
+.to-do-particulars {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+/* 3 items to choose */
+#flexWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#flexWrapper > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 1.5rem;
+}
+
+#flexWrapper > div > span {
+    width: 5rem;
+}
+
+.submit-button {
+    width: 4rem;
+    margin-left: auto;
+    border: 2px solid var(--dark);
+    border-radius: 0.5rem;
+    background-color: transparent;
+    padding: 0.3rem;
+}
+
+/* Overlay */
+#overlay {
+    position: fixed;
+    opacity: 0;
+    transition: 200ms ease-in-out;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* Hide */
+.hide {
+    display: none;
+}

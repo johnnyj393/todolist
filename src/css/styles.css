@@ -1,0 +1,241 @@
+:root {
+    --dark: #92C7CF;
+    --mid: #E5E1DA;
+    --light: #fdf4ff;
+    --to-do-big-text: 1.1rem;
+    --to-do-small-text: 0.85rem;
+    --header-height: 4rem;
+    --header-padding: 1rem;
+    --dash-width: 13rem;
+}
+
+/* Main Layout */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+}
+
+header {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: var(--header-height);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: var(--header-padding);
+    align-items: center;
+    font-size: 2rem;
+    border-bottom: 1px var(--mid) solid;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+#hideDashButton {
+    font-size: 1.2rem;
+    color: black;
+    background-color: transparent;
+    border: 1px black solid;
+    border: none;
+}
+
+#accountButton {
+    border-radius: 0.7rem;
+    width: 4rem;
+    background-color: transparent;
+    border: 1.2px black solid;
+    height: 1.7rem;
+}
+
+/* Includes dash and main */
+#mainWrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin-top: var(--header-height);
+}
+
+#dash {
+    position: fixed;
+    padding: 0rem 1rem 1rem 1rem;
+    width: var(--dash-width);
+    border-right: 1px var(--mid) solid;
+    box-sizing: border-box;
+    height: 100%;
+    padding-bottom: 4rem;
+}
+
+#dash.retract {
+    margin-left: calc(-1*(var(--dash-width))); 
+}
+
+.dash-transition {
+    transition: margin-left 400ms ease-in-out;
+}
+
+.dash-item {
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 2.5rem;
+    align-items: center;
+}
+
+#nav > :not(:first-child) {
+    border-top: 0.5px var(--mid) solid;
+}
+
+#nav > :last-child {
+    border-bottom: 0.5px var(--mid) solid;
+}
+
+#nav > li > :first-child {
+    flex: 1;
+}
+
+#nav > li > :not(:first-child) {
+    height: 70%;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+}
+
+#dashProjectDisplay {
+    padding: 0.5rem;
+}
+
+#dashProjectDisplay > div {
+    padding: 0.2rem;
+    font-size: 0.85rem;
+}
+
+/* Main view display */
+#main {
+    position: relative;
+    flex: 1;
+    margin-left: var(--dash-width);
+}
+
+#main.retract {
+    margin-left: 0;
+}
+
+/* To Dos */
+.to-do-block {
+    padding: 0.2rem;
+    margin: 0.8rem 1rem 0.8rem 1rem;
+    border: 1px var(--light) solid;
+    background-color: var(--light);
+    border-radius: 0.5rem;
+}
+
+.to-do-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 0.9rem;
+    align-items: center;
+    height: 1.5rem;
+}
+
+.to-do-checkbox {
+    width: 1rem;
+}
+
+.to-do-title {
+    flex: 1;
+    font-size: var(--to-do-big-text);
+}
+
+.to-do-project {
+    font-size: var(--to-do-small-text);
+}
+
+.to-do-button {
+    font-size: var(--to-do-small-text);
+    width: 3.5rem;
+    background-color: transparent;
+    border: 2px var(--dark) solid;
+    border-radius: 0.3rem;
+    height: 100%;
+}
+
+.to-do-due-date {
+    font-size: var(--to-do-small-text);
+    width: 2rem;
+    text-align: center;
+}
+
+/* Details drop down */
+.to-do-details {
+    border-top: 1px var(--mid) solid;
+    margin-top: 0.3rem;
+    padding-left: 2.8rem;
+}
+
+.to-do-details > div {
+    font-size: var(--to-do-small-text);
+    padding-top: 0.3rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.detail-label {
+    width: 6.5rem;
+}
+
+/* Projects display */
+.project-title {
+    font-size: var(--to-do-big-text);
+    padding: 0.4rem;
+    width: 10rem;
+}
+
+.project-description {
+    flex: 1;
+    font-size: var(--to-do-small-text);
+}
+
+/* Notes display */
+#main.notes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: fit-content;
+}
+
+.note-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px var(--mid) solid;
+    box-sizing: border-box;
+    padding: 0.2rem 0 0.3rem 0;
+}
+
+.note-title {
+    font-size: var(--to-do-big-text);
+    padding-left: 0.4rem;
+}
+
+.note-description {
+    font-size: 1rem;
+    padding: 0.5rem 0.2rem 0.5rem 1rem;
+}
+
+.note-description:focus {
+    outline: none;
+}
+
+/* Hide */
+.hide {
+    display: none;
+}
